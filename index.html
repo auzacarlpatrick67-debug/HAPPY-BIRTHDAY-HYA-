@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Twenty Looks Lovely on You</title>
+<style>
+:root{
+  --cream:#fffaf8; --paper:#fffdfc; --ink:#543f3d; --muted:#987b78;
+  --rose:#b64f49; --rose2:#d58a82; --line:#e8c9c5; --pink:#f7e7e5;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#f2ddd8;color:var(--ink)}
+body{display:flex;justify-content:center}
+.page{
+  width:min(100%,680px); min-height:100vh; padding:30px 22px 42px;
+  background:linear-gradient(180deg,#fffefe 0%,#fffafa 70%,#f7e7e1 100%);
+  box-shadow:0 0 45px #c9aaa455;
+}
+.hero{text-align:center;padding:20px 10px 8px}
+.cake{width:170px;height:135px;margin:0 auto 5px;position:relative}
+.cake .plate{position:absolute;left:13px;right:13px;bottom:10px;height:17px;background:#eadbd7;border-radius:50%;filter:blur(.2px)}
+.cake .body{position:absolute;left:31px;right:31px;bottom:28px;height:67px;background:#d76f67;border:4px solid #8e514b;border-radius:18px 18px 7px 7px}
+.cake .cream{position:absolute;left:30px;right:30px;bottom:78px;height:28px;background:#fff9f6;border:4px solid #8e514b;border-bottom:0;border-radius:22px 22px 7px 7px;z-index:2}
+.cake .cream:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:17px;background:#fff9f6;border-radius:0 0 50% 50%/0 0 100% 100%;border-bottom:3px solid #8e514b}
+.cake .number{position:absolute;z-index:4;left:0;right:0;bottom:39px;text-align:center;font:700 48px Georgia,serif;color:#fff7f2}
+.candle{position:absolute;bottom:100px;width:13px;height:38px;background:repeating-linear-gradient(0deg,#8db0a5 0 7px,#f8eee8 7px 13px);border-radius:2px;z-index:5}
+.candle.one{left:59px}.candle.two{right:59px}
+.flame{position:absolute;bottom:136px;width:14px;height:21px;background:#efb04d;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;animation:flicker .7s infinite alternate;z-index:6}
+.flame:after{content:"";position:absolute;inset:4px 4px 3px;background:#ffe4a4;border-radius:50%}
+.flame.one{left:59px}.flame.two{right:59px}
+@keyframes flicker{to{transform:translateY(-2px) scale(.88) rotate(3deg)}}
+.eyebrow{letter-spacing:7px;font-size:15px;line-height:1.8;color:#a95e59;margin:0 0 38px}
+.lead{font-size:27px;line-height:1.85;margin:0 auto 34px;max-width:570px;color:#6b5653}
+h1{font-size:39px;margin:0 0 30px;color:#402d2b}
+.decor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:34px}
+.decor i{display:block}.diamond{width:13px;height:13px;transform:rotate(45deg);background:#d98578}.bar{width:64px;height:9px;border-radius:8px;background:#e9bb5e}.dot{width:17px;height:17px;border:5px solid #8daea3;border-radius:50%}.purple{background:#b88bb4}
+.choice-box{border:2px dashed #e4c5c0;border-radius:30px;padding:42px 30px 52px;position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.buttons{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;width:100%}
+button{font:inherit;cursor:pointer;border:0}
+.yes,.no{width:190px;min-height:132px;border-radius:90px;padding:20px 28px;font-size:30px;line-height:1.25;transition:.22s}
+.yes{background:var(--rose);color:white;box-shadow:0 18px 30px #b64f4930}
+.no{background:#fff;border:2px solid #ded0cd;color:#705d59;box-shadow:0 8px 16px #6b514d18;position:relative}
+.hint{font-style:italic;text-align:center;color:#9b7c77;font-size:20px;margin:34px 0 0}
+.stage{display:none}.stage.show{display:block}
+.cards-intro{text-align:center;font-size:25px;line-height:1.7;color:#735c59;margin:0 auto 35px;max-width:550px}
+.cards{display:grid;gap:24px}
+.card{
+  min-height:250px;border:2px solid #ead3cf;border-radius:30px;background:#fffaf9;
+  padding:34px 40px;text-align:left;box-shadow:0 12px 28px #7e4c4720;
+  transition:transform .25s,background .25s;cursor:pointer;
+}
+.card:hover{transform:translateY(-3px)}
+.card.open{background:var(--rose);color:#fff;border-color:var(--rose)}
+.num{font-size:19px;letter-spacing:5px;color:#a56d69;margin-bottom:45px}.open .num{color:#f7dfdc}
+.card-title{font:34px Georgia,serif;margin:0 0 10px}.tap{font-size:21px;color:#9b7c77}.open .tap{display:none}
+.message{display:none;font:32px/1.55 Georgia,serif;margin:0}.open .message{display:block}
+.closing{text-align:center;font-style:italic;color:#9b7c77;font-size:21px;line-height:1.5;margin:28px 15px}
+.again{display:block;margin:0 auto;background:#fff;border:2px solid #dfd0cc;color:#7c6662;border-radius:40px;padding:17px 45px;font-size:22px;box-shadow:0 5px 12px #6b514d15}
+.shake{animation:shake .35s ease}
+@keyframes floatHeart{to{transform:translateY(-230px) rotate(25deg);opacity:0}}
+@keyframes shake{25%{transform:translateX(18px)}50%{transform:translateX(-14px)}75%{transform:translateX(9px)}100%{transform:translateX(0)}}
+@media(max-width:520px){
+ .page{padding:18px 16px 35px}.lead{font-size:22px}.hero{padding-top:10px}
+ h1{font-size:31px}.choice-box{padding:34px 14px 46px;min-height:330px}
+ .yes,.no{width:170px;min-height:120px;font-size:27px}
+ .card{padding:30px;min-height:235px}.card-title{font-size:30px}.message{font-size:28px}
+ .cake{transform:scale(.88);margin-bottom:-8px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+}
+
+.meme-wrap{
+  margin: 30px auto 8px;
+  padding: 14px;
+  max-width: 590px;
+  border-radius: 28px;
+  background: #fff;
+  border: 2px solid #efd3cf;
+  box-shadow: 0 12px 30px #9d625a22;
+  text-align:center;
+}
+.meme-wrap img{width:100%;max-width:560px;border-radius:20px;display:block;margin:auto}
+.cute-note{
+  text-align:center;font-size:19px;color:#9b7772;font-style:italic;margin:18px 0 5px
+}
+.sparkle{display:inline-block;animation:twinkle 1.2s infinite alternate}
+@keyframes twinkle{to{transform:scale(1.25) rotate(8deg);opacity:.65}}
+
+</style>
+</head>
+<body>
+<main class="page">
+<section id="opening" class="stage show">
+  <div class="hero">
+    <div class="cake" aria-label="Birthday cake with twenty">
+      <div class="plate"></div><div class="body"></div><div class="cream"></div>
+      <div class="number">20</div>
+      <div class="candle one"></div><div class="candle two"></div>
+      <div class="flame one"></div><div class="flame two"></div>
+    </div>
+    <p class="eyebrow">TWENTY LOOKS<br>LOVELY ON YOU</p>
+  </div>
+  <p class="lead">Today is all about celebrating the wonderful human you are. I made a tiny surprise for your 20th, just for you.</p>
+<div class="meme-wrap">
+  <div class="cute-note"><span class="sparkle">♡</span> a little birthday surprise for you <span class="sparkle">♡</span></div>
+  <img src="cute-meme.gif" alt="Cute animated birthday meme">
+</div>
+
+  <h1>Do you want to open it?</h1>
+  <div class="decor"><i class="diamond"></i><i class="bar"></i><i class="dot"></i><i class="bar purple"></i><i class="diamond"></i></div>
+  <div class="choice-box" id="choiceBox">
+    <div class="buttons">
+      <button class="yes" id="yes">Yes,<br>please</button>
+      <button class="no" id="no">Maybe<br>not</button>
+    </div>
+  </div>
+  <p class="hint" id="hint">It really doesn't want to be clicked.</p>
+</section>
+
+<section id="cardsStage" class="stage">
+  <div class="hero" style="padding-bottom:0">
+    <div class="cake">
+      <div class="plate"></div><div class="body"></div><div class="cream"></div>
+      <div class="number">20</div>
+      <div class="candle one"></div><div class="candle two"></div>
+      <div class="flame one"></div><div class="flame two"></div>
+    </div>
+    <p class="eyebrow">FOR <span id="fullName"></span><br><span style="letter-spacing:3px;font-size:13px" id="nickname"></span></p>
+  </div>
+  <p class="cards-intro">Three cards, three sweet notes. Just tap a card and choose the one calling your name.</p>
+  <div class="cards">
+    <article class="card" data-card="1">
+      <div class="num">01</div><h2 class="card-title">A little wish</h2><div class="tap">Tap to open</div>
+      <p class="message">“May twenty bring you soft mornings, loud laughter, and more happiness than you know what to do with.”</p>
+    </article>
+    <article class="card" data-card="2">
+      <div class="num">02</div><h2 class="card-title">A reminder</h2><div class="tap">Tap to open</div>
+      <p class="message">“You make life brighter simply by being in it. I hope today makes you feel as special as you make everyone else feel.”</p>
+    </article>
+    <article class="card" data-card="3">
+      <div class="num">03</div><h2 class="card-title">A tiny promise</h2><div class="tap">Tap to open</div>
+      <p class="message">“I hope this year is full of beautiful surprises—and I plan on being there to celebrate every single one with you.”</p>
+    </article>
+  </div>
+  <p class="closing" id="finalMessage"></p>
+  <button class="again" id="again">Celebrate again</button>
+</section>
+</main>
+<script>
+/*
+  ================================
+  EASY CUSTOMIZATION
+  Change these values before sending the page.
+  ================================
+*/
+const CUSTOM = {
+  fullName: "Hyacinth Mae Rosauro",
+  nickname: "Hya",
+  finalMessage: "Happy birthday, Hya. You deserve every lovely thing."
+};
+</script>
+<script>
+
+document.getElementById('fullName').textContent = CUSTOM.fullName;
+document.getElementById('nickname').textContent = CUSTOM.nickname;
+document.getElementById('finalMessage').textContent = CUSTOM.finalMessage;
+
+const opening=document.getElementById('opening');
+const cardsStage=document.getElementById('cardsStage');
+const yes=document.getElementById('yes');
+const no=document.getElementById('no');
+const choiceBox=document.getElementById('choiceBox');
+const hint=document.getElementById('hint');
+
+function hearts(){
+  for(let i=0;i<16;i++){
+    const h=document.createElement('div'); h.textContent=['♡','♥','✦'][i%3];
+    h.style.cssText=`position:fixed;left:${10+Math.random()*80}%;top:75%;
+      color:${['#d76f67','#e9a3a0','#c69ac2'][i%3]};font-size:${16+Math.random()*20}px;
+      pointer-events:none;z-index:9999;animation:floatHeart 1.4s ease-out forwards;`;
+    document.body.appendChild(h); setTimeout(()=>h.remove(),1500);
+  }
+}
+yes.addEventListener('click',()=>{
+  hearts();
+  opening.classList.remove('show');
+  cardsStage.classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+function dodge(){
+  no.classList.remove('shake'); void no.offsetWidth; no.classList.add('shake');
+  const box=choiceBox.getBoundingClientRect(), b=no.getBoundingClientRect();
+  const maxX=Math.max(0,(box.width-b.width)-35), maxY=Math.max(0,(box.height-b.height)-35);
+  const x=Math.random()*maxX-maxX/2, y=Math.random()*maxY-maxY/2;
+  no.style.transform=`translate(${x}px,${y}px)`;
+  hint.textContent=['Nice try.','Choose wisely.','It really doesn’t want to be clicked.','Nope — try the other one.'][Math.floor(Math.random()*4)];
+}
+no.addEventListener('mouseenter',dodge);
+no.addEventListener('touchstart',(e)=>{e.preventDefault();dodge()},{passive:false});
+no.addEventListener('click',(e)=>{e.preventDefault();dodge()});
+
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click',()=>card.classList.toggle('open'));
+});
+document.getElementById('again').addEventListener('click',()=>{
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
+  cardsStage.classList.remove('show'); opening.classList.add('show');
+  no.style.transform='';
+  hint.textContent="It really doesn't want to be clicked.";
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
